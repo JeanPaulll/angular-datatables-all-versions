@@ -2,7 +2,7 @@
   "extends": "../tsconfig.json",
   "angularCompilerOptions": {
     "paths": {
-      "angular7-data-table": [ "../dist/angular7-data-table" ]
+      "angular-datatables-all-versions": [ "../dist/angular-datatables-all-versions" ]
     }
   },
   "compilerOptions": {
@@ -11,7 +11,7 @@
     "baseUrl": "",
     "types": [],
     "paths": {
-      "angular7-data-table": [ "../dist/angular7-data-table" ]
+      "angular-datatables-all-versions": [ "../dist/angular-datatables-all-versions" ]
     }
   },
   "exclude": [

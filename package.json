@@ -1,5 +1,5 @@
 {
-  "name": "angular7-datable-demo",
+  "name": "angular-datatables-all-versions",
   "version": "0.1.1",
   "license": "MIT",
   "private": false,
@@ -11,10 +11,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:docs": "compodoc ./libs -p src/tsconfig.packages.json -s",
-    "build:app": "cpr dist/angular7-data-table src/angualar7-datatable --overwrite && ng build --app packages && rimraf src/angular7-data-table",
-    "build:app:prod": "cpr dist/angular7-data-table src/angular7-data-table --overwrite && ng build --prod --named-chunks=true --app packages && rimraf src/angular7-data-table",
+    "build:app": "cpr dist/angular-datatables-all-versions src/angualar7-datatable --overwrite && ng build --app packages && rimraf src/angular-datatables-all-versions",
+    "build:app:prod": "cpr dist/angular-datatables-all-versions src/angular-datatables-all-versions --overwrite && ng build --prod --named-chunks=true --app packages && rimraf src/angular-datatables-all-versions",
     "build:libs:datatable": "ng-packagr -p libs/datatable/package.json",
-    "publish:libs:datatable": "npm publish dist/angular7-data-table"
+    "publish:libs:datatable": "npm publish dist/angular-datatables-all-versions"
   },
   "dependencies": {
     "@angular/animations": "^7.2.4",

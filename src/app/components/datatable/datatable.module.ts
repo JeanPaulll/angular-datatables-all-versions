@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { DataTableModule } from 'angular7-data-table';
+import { DataTableModule } from 'angular-datatables-all-versions';
 
 import { DataTableRoutingModule } from './datatable-routing.module';
 import { DataTableDemo1Component } from './demo1/data-table-demo1';
