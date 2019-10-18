@@ -61,7 +61,7 @@ export class DataTableComponent implements DataTableParams, OnInit, AfterContent
     }
 
     // UI components:
-    @ContentChildren(DataTableColumnDirective) columns: QueryList<DataTableColumnDirective>;
+    @ContentChildren(DataTableColumnDirective) columns: QueryList<DataTableColumnDirective> | any;
     @ViewChildren(DataTableRowComponent) rows: QueryList<DataTableRowComponent>;
     @ContentChild('dataTableExpand') expandTemplate: TemplateRef<any>;
 
@@ -391,7 +391,7 @@ export class DataTableComponent implements DataTableParams, OnInit, AfterContent
         return Array.from({length: this.displayParams.limit - this.items.length});
     }
 
-    private resizeColumnStart(event: MouseEvent, column: DataTableColumnDirective, columnElement: HTMLElement) {
+    public resizeColumnStart(event: MouseEvent, column: DataTableColumnDirective, columnElement: HTMLElement) {
         this._resizeInProgress = true;
         let startOffset = columnElement.offsetWidth - event.pageX;
         drag(event, {
