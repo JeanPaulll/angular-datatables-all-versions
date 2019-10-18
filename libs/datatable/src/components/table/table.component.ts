@@ -393,7 +393,7 @@ export class DataTableComponent implements DataTableParams, OnInit, AfterContent
 
     public resizeColumnStart(event: MouseEvent, column: DataTableColumnDirective, columnElement: HTMLElement) {
         this._resizeInProgress = true;
-        let startOffset = columnElement.offsetWidth - event.pageX;
+        const startOffset = columnElement.offsetWidth - event.pageX;
         drag(event, {
             move: (moveEvent: MouseEvent, dx: number) => {
                 if (this._isResizeInLimit(columnElement, dx)) {
