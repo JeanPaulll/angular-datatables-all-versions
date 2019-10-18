@@ -1,11 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
-import { Cars } from './data-table-demo2-data';
-import { DataTable, DataTableResource } from 'angular7-data-table';
-
+import {Component, ViewChild} from '@angular/core';
+import {Cars} from './data-table-demo2-data';
+import {DataTable, DataTableResource} from 'angular-datatables-all-versions';
 
 @Component({
-  selector: 'app-data-table-demo-2',
-  templateUrl: './data-table-demo2.html'
+    selector: 'app-data-table-demo-2',
+    templateUrl: './data-table-demo2.html'
 })
 export class DataTableDemo2Component {
 
@@ -33,7 +32,7 @@ export class DataTableDemo2Component {
 
     rowColors(car) {
         if (car.year >= this.yearLimit) {
-          return 'rgb(255, 255, 197)';
+            return 'rgb(255, 255, 197)';
         }
     }
 }
