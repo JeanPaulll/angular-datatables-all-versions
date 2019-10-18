@@ -18,7 +18,6 @@
   "ngPackage": {
     "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
     "dest": "../../dist/angular-datatables-all-versions",
-    "workingDirectory": "./.ng_build",
     "lib": {
       "entryFile": "src/public_api.ts"
     },
