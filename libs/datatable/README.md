@@ -35,7 +35,7 @@ npm install bootstrap@4.0.0 font-awesome@4.7.0
 ---
 # Installation
 ```bash
-npm install angular7-data-table
+npm install angular-datatables-all-versions
 ```
 ---
 # Usage
@@ -43,7 +43,7 @@ npm install angular7-data-table
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { DataTableModule } from 'angular7-data-table';
+import { DataTableModule } from 'angular-datatables-all-versions';
 
 @NgModule({
   imports: [
