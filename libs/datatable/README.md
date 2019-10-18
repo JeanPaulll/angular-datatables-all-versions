@@ -1,4 +1,4 @@
-# @angular7/datatable
+# @angular/datatable
 This library contains a datatable component with built-in solutions for features including:
 - pagination
 - sorting

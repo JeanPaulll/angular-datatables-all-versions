@@ -1,8 +1,6 @@
-# Angular 7 DataTable
+# Angular All DataTable
 
-*Note*: Originally this was fork of this [package](https://github.com/brunano21/angular-4-data-table).
-
-A simple Angular 7 data table, with built-in solutions for features including:
+A simple Angular All data table, with built-in solutions for features including:
 * pagination
 * sorting
 * row selection (single/multi)
@@ -42,7 +40,7 @@ npm install bootstrap@4.0.0 font-awesome@4.7.0
 ## Installation
 
 ```bash
-npm install aangular-datatables-all-versions
+npm install angular-datatables-all-versions
 ```
 
 ## Usage
