@@ -1,0 +1,89 @@
+<div>
+  <form #f="ngForm" (ngSubmit)="((f.valid && isAtleastOneValueSelected) || selectedOperator == 'empty') && onFilterApply()">
+    <div class="header">
+      <span class="field-label">{{data.fieldFilter.field.header}}</span>
+      <button mat-dialog-close class="icon-button" mat-icon-button>
+        <mat-icon aria-label="close">close</mat-icon>
+      </button>
+    </div>
+    <div class="content">
+      <div class="filter-operator">
+        <div class="mat-auto-width">
+          <mat-form-field>
+            <mat-select [(value)]="selectedOperator">
+              <mat-option *ngFor="let operator of filterOperators" [value]="operator">
+                {{data.labels.filterOperators[operator]}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="ml-2 mat-auto-width">
+        <ng-container *ngIf="dataType == 'number' && selectedOperator !== 'empty'">
+          <ng-container *ngTemplateOutlet="numericField"></ng-container>
+        </ng-container>
+        <ng-container *ngIf="dataType == 'date' && selectedOperator !== 'empty'">
+          <ng-container *ngTemplateOutlet="dateField"></ng-container>
+        </ng-container>
+        <ng-container *ngIf="dataType == 'text' && selectedOperator !== 'empty'">
+          <ng-container *ngTemplateOutlet="textField"></ng-container>
+        </ng-container>
+        <ng-container *ngIf="dataType == 'enum' && selectedOperator !== 'empty'">
+          <ng-container *ngTemplateOutlet="valuesListField; context: {options: data.fieldFilter.field.possibleOptions, form: f}"></ng-container>
+        </ng-container>
+        <ng-container *ngIf="dataType == 'bool' && selectedOperator !== 'empty'">
+          <ng-container *ngTemplateOutlet="booleanField"></ng-container>
+        </ng-container>
+      </div>
+    </div>
+    <div class="footer">
+      <button type="submit" class="mx-1" mat-button>{{data.labels.apply}}</button>
+    </div>
+
+
+    <ng-template #dateField>
+      <mat-form-field hideRequiredMarker="true" floatLabel="never">
+        <input cdkFocusInitial autocomplete="off" matInput [errorStateMatcher]="matcher" #filterValueInput="ngModel" name="filterValue"
+          [(ngModel)]="filterValue" [matDatepicker]="picker" [placeholder]="data.labels.date" class="ltr" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker panelClass="field-filter-popup-value-panel"></mat-datepicker>
+        <mat-error *ngIf="filterValueInput && filterValueInput.invalid">{{getErrorMessage(filterValueInput)}}</mat-error>
+      </mat-form-field>
+    </ng-template>
+
+    <ng-template #numericField>
+      <mat-form-field hideRequiredMarker="true" floatLabel="never">
+        <input cdkFocusInitial autocomplete="off" matInput [placeholder]="data.labels.value" [errorStateMatcher]="matcher"
+          #filterValueInput="ngModel" name="filterValue" [(ngModel)]="filterValue" required pattern="^[0-9]+(\.?[0-9]+)?$">
+        <mat-error *ngIf="filterValueInput && filterValueInput.invalid">{{getErrorMessage(filterValueInput)}}</mat-error>
+      </mat-form-field>
+    </ng-template>
+
+    <ng-template #valuesListField let-options="options" let-operator="operator" let-f="form">
+      <div class="py-3">
+        <mat-checkbox class="d-block" *ngFor="let option of options" [checked]="isValueChecked(option)" (change)="valueCheckChange(option, $event.checked)">{{getPossibleOptionDisplayText(option)}}</mat-checkbox>
+        <mat-error *ngIf="f.submitted && !isAtleastOneValueSelected">{{MUST_SELECT_VALUE_VALIDATION}}</mat-error>
+      </div>
+    </ng-template>
+
+    <ng-template #booleanField>
+      <div class="py-3">
+        <!-- Workaround to focus radio buttons -->
+        <input style="width: 0px; height: 0px;" cdkFocusInitial (focus)="filterValue == false ? radioButtonFalse.focus() : radioButtonTrue.focus()" autocomplete="off" matInput>
+        <mat-radio-group [(ngModel)]="filterValue" name="filterValue">
+          <mat-radio-button #radioButtonTrue class="mr-3" [value]="true"><mat-icon class="mt-1">check</mat-icon></mat-radio-button>
+          <mat-radio-button #radioButtonFalse [value]="false"><mat-icon class="mt-1">close</mat-icon></mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </ng-template>
+
+    <ng-template #textField>
+      <mat-form-field hideRequiredMarker="true" floatLabel="never">
+        <input cdkFocusInitial autocomplete="off" matInput [placeholder]="data.labels.value" [errorStateMatcher]="matcher"
+          #filterValueInput="ngModel" name="filterValue" [(ngModel)]="filterValue" required>
+        <mat-error *ngIf="filterValueInput && filterValueInput.invalid">{{getErrorMessage(filterValueInput)}}</mat-error>
+      </mat-form-field>
+    </ng-template>
+
+  </form>
+</div>
