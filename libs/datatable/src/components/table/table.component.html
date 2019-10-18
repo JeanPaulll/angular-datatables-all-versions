@@ -33,7 +33,7 @@
             [class.resizable]="column.resizable"
             scope="col"
             [attr.aria-sort]="column.sortable ? (column.property === sortBy ? (sortAsc ? 'ascending' : 'descending') : 'none') : null"
-            [ngClass]="column.styleClassObject" class="column-header" [style.width]="column.width | px" >
+            [ngClass]="column?.styleClassObject" class="column-header" >
           <button *ngIf="column.sortable" (click)="headerClicked(column, $event)"
                   [attr.aria-controls]="column.sortable ? id : null"
                   [disabled]="itemCount === 0"
