@@ -19,7 +19,7 @@ export const films = [
     rating: 9.0,
     director: 'Francis Ford Coppola',
     description: 'The early life and career of Vito Corleone in 1920s New York is portrayed while his son, Michael, expands and tightens ' +
-    'his grip on his crime syndicate stretching from Lake Tahoe, Nevada to pre-revolution 1958 Cuba.'
+      'his grip on his crime syndicate stretching from Lake Tahoe, Nevada to pre-revolution 1958 Cuba.'
   },
   {
     title: 'The Dark Knight',
@@ -27,7 +27,7 @@ export const films = [
     rating: 8.9,
     director: 'Christopher Nolan',
     description: 'When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to ' +
-    'terms with one of the greatest psychological tests of his ability to fight injustice.'
+      'terms with one of the greatest psychological tests of his ability to fight injustice.'
   },
   {
     title: 'Pulp Fiction',
@@ -35,7 +35,7 @@ export const films = [
     rating: 8.9,
     director: 'Quentin Tarantino',
     description: 'The lives of two mob hit men, a boxer, a gangster\'s wife, and a pair of diner bandits intertwine in four tales of ' +
-    'violence and redemption.'
+      'violence and redemption.'
   },
   {
     title: 'Schindler\'s List',
@@ -43,7 +43,7 @@ export const films = [
     rating: 8.9,
     director: 'Stephen Spielberg',
     description: 'In Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing ' +
-    'their persecution by the Nazis.'
+      'their persecution by the Nazis.'
   },
   {
     title: '12 Angry Men',
@@ -51,7 +51,7 @@ export const films = [
     rating: 8.9,
     director: 'Sidney Lumet',
     description: 'A dissenting juror in a murder trial slowly manages to convince the others that the case is not as obviously clear ' +
-    'as it seemed in court.'
+      'as it seemed in court.'
   },
   {
     title: 'The Good, the Bad and the Ugly',
@@ -59,7 +59,7 @@ export const films = [
     rating: 8.9,
     director: 'Sergio Leone',
     description: 'A bounty hunting scam joins two men in an uneasy alliance against a third in a race to find a fortune in gold buried ' +
-    'in a remote cemetery.'
+      'in a remote cemetery.'
   },
   {
     title: 'The Lord of the Rings: The Return of the King',
@@ -67,7 +67,7 @@ export const films = [
     rating: 8.9,
     director: 'Peter Jackson',
     description: 'Gandalf and Aragorn lead the World of Men against Sauron\'s army to draw his gaze from Frodo and Sam as they approach' +
-    ' Mount Doom with the One Ring.'
+      ' Mount Doom with the One Ring.'
   },
   {
     title: 'Fight Club',
@@ -75,7 +75,7 @@ export const films = [
     rating: 8.8,
     director: 'David Fincher',
     description: 'An insomniac office worker looking for a way to change his life crosses paths with a devil-may-care soap maker and ' +
-    'they form an underground fight club that evolves into something much, much more...'
+      'they form an underground fight club that evolves into something much, much more...'
   },
   {
     title: 'The Lord of the Rings: The Fellowship of the Ring',
@@ -83,7 +83,7 @@ export const films = [
     rating: 8.8,
     director: 'Peter Jackson',
     description: 'A meek hobbit of the Shire and eight companions set out on a journey to Mount Doom to destroy the One Ring and the' +
-    ' dark lord Sauron.'
+      ' dark lord Sauron.'
   },
   {
     title: 'Star Wars: Episode V - The Empire Strikes Back',
@@ -91,7 +91,7 @@ export const films = [
     rating: 8.7,
     director: 'Irvin Kershner',
     description: 'After the rebels have been brutally overpowered by the Empire on their newly established base, Luke Skywalker takes ' +
-    'advanced Jedi training with Master Yoda, while his friends are pursued by Darth Vader as part of his plan to capture Luke.'
+      'advanced Jedi training with Master Yoda, while his friends are pursued by Darth Vader as part of his plan to capture Luke.'
   },
   {
     title: 'Forest Gump',
@@ -99,7 +99,7 @@ export const films = [
     rating: 8.7,
     director: 'Stephen Spielberg',
     description: 'Forrest Gump, while not intelligent, has accidentally been present at many historic moments, but his true love, ' +
-    'Jenny Curran, eludes him.'
+      'Jenny Curran, eludes him.'
   },
   {
     title: 'Inception',
@@ -107,6 +107,6 @@ export const films = [
     rating: 8.7,
     director: 'Christopher Nolan',
     description: 'A thief who steals corporate secrets through use of dream-sharing technology is given the inverse task of planting an ' +
-    'idea into the mind of a CEO.'
+      'idea into the mind of a CEO.'
   }
 ];

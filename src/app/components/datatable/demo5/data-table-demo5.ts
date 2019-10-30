@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { DataTable, DataTableResource } from 'angular-datatables-all-versions';
+import {Component, ViewChild} from '@angular/core';
+import {DataTable, DataTableResource} from 'angular-datatables-all-versions';
 
 
 @Component({
@@ -9,18 +9,18 @@ import { DataTable, DataTableResource } from 'angular-datatables-all-versions';
 })
 export class DataTableDemo5Component {
 
-    filmResource = new DataTableResource([]);
-    films = [];
-    filmCount = 0;
+  filmResource = new DataTableResource([]);
+  films = [];
+  filmCount = 0;
 
-    @ViewChild(DataTable) filmsTable;
+  @ViewChild(DataTable) filmsTable;
 
-    constructor() {
-        this.filmResource.count().then(count => this.filmCount = count);
-    }
+  constructor() {
+    this.filmResource.count().then(count => this.filmCount = count);
+  }
 
-    reloadFilms(params) {
-        this.filmResource.query(params).then(filmsRes => this.films = filmsRes);
-    }
+  reloadFilms(params) {
+    this.filmResource.query(params).then(filmsRes => this.films = filmsRes);
+  }
 
 }

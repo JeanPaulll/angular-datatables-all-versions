@@ -1,6 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
-import { films } from './data-table-demo3-data';
-import { DataTable, DataTableResource, DataTableTranslations } from 'angular-datatables-all-versions';
+import {Component, ViewChild} from '@angular/core';
+import {films} from './data-table-demo3-data';
+import {DataTable, DataTableResource, DataTableTranslations} from 'angular-datatables-all-versions';
 
 
 @Component({
@@ -10,25 +10,25 @@ import { DataTable, DataTableResource, DataTableTranslations } from 'angular-dat
 })
 export class DataTableDemo3Component {
 
-    filmResource = new DataTableResource(films);
-    films = [];
-    filmCount = 0;
-    labels = <DataTableTranslations>{
-      loadingText: 'Your {title} table is reloading - and this is my custom message.',
-      paginationText: 'Your table displays {from} to {to} of {total} rows.'
-    };
+  filmResource = new DataTableResource(films);
+  films = [];
+  filmCount = 0;
+  labels = <DataTableTranslations>{
+    loadingText: 'Your {title} table is reloading - and this is my custom message.',
+    paginationText: 'Your table displays {from} to {to} of {total} rows.'
+  };
 
-    @ViewChild(DataTable) filmsTable;
+  @ViewChild(DataTable) filmsTable;
 
-    constructor() {
-        this.filmResource.count().then(count => this.filmCount = count);
-    }
+  constructor() {
+    this.filmResource.count().then(count => this.filmCount = count);
+  }
 
-    reloadFilms(params) {
-        this.filmResource.query(params).then(filmsRes => this.films = filmsRes);
-    }
+  reloadFilms(params) {
+    this.filmResource.query(params).then(filmsRes => this.films = filmsRes);
+  }
 
-    cellColor(car) {
-        return 'rgb(255, 255,' + (155 + Math.floor(100 - ((car.rating - 8.7) / 1.3) * 100)) + ')';
-    }
+  cellColor(car) {
+    return 'rgb(255, 255,' + (155 + Math.floor(100 - ((car.rating - 8.7) / 1.3) * 100)) + ')';
+  }
 }
