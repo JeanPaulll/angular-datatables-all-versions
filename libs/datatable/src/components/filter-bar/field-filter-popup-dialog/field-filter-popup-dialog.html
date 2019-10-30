@@ -1,8 +1,9 @@
 <div>
-  <form #f="ngForm" (ngSubmit)="((f.valid && isAtleastOneValueSelected) || selectedOperator == 'empty') && onFilterApply()">
+  <form #f="ngForm"
+        (ngSubmit)="((f.valid && isAtleastOneValueSelected) || selectedOperator == 'empty') && onFilterApply()">
     <div class="header">
       <span class="field-label">{{data.fieldFilter.field.header}}</span>
-      <button mat-dialog-close class="icon-button" mat-icon-button>
+      <button class="icon-button" mat-dialog-close mat-icon-button>
         <mat-icon aria-label="close">close</mat-icon>
       </button>
     </div>
@@ -29,7 +30,8 @@
           <ng-container *ngTemplateOutlet="textField"></ng-container>
         </ng-container>
         <ng-container *ngIf="dataType == 'enum' && selectedOperator !== 'empty'">
-          <ng-container *ngTemplateOutlet="valuesListField; context: {options: data.fieldFilter.field.possibleOptions, form: f}"></ng-container>
+          <ng-container
+            *ngTemplateOutlet="valuesListField; context: {options: data.fieldFilter.field.possibleOptions, form: f}"></ng-container>
         </ng-container>
         <ng-container *ngIf="dataType == 'bool' && selectedOperator !== 'empty'">
           <ng-container *ngTemplateOutlet="booleanField"></ng-container>
@@ -37,31 +39,37 @@
       </div>
     </div>
     <div class="footer">
-      <button type="submit" class="mx-1" mat-button>{{data.labels.apply}}</button>
+      <button class="mx-1" mat-button type="submit">{{data.labels.apply}}</button>
     </div>
 
 
     <ng-template #dateField>
-      <mat-form-field hideRequiredMarker="true" floatLabel="never">
-        <input cdkFocusInitial autocomplete="off" matInput [errorStateMatcher]="matcher" #filterValueInput="ngModel" name="filterValue"
-          [(ngModel)]="filterValue" [matDatepicker]="picker" [placeholder]="data.labels.date" class="ltr" required>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-form-field floatLabel="never" hideRequiredMarker="true">
+        <input #filterValueInput="ngModel" [(ngModel)]="filterValue" [errorStateMatcher]="matcher" [matDatepicker]="picker" [placeholder]="data.labels.date"
+               autocomplete="off"
+               cdkFocusInitial class="ltr" matInput name="filterValue" required>
+        <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
         <mat-datepicker #picker panelClass="field-filter-popup-value-panel"></mat-datepicker>
-        <mat-error *ngIf="filterValueInput && filterValueInput.invalid">{{getErrorMessage(filterValueInput)}}</mat-error>
+        <mat-error
+          *ngIf="filterValueInput && filterValueInput.invalid">{{getErrorMessage(filterValueInput)}}</mat-error>
       </mat-form-field>
     </ng-template>
 
     <ng-template #numericField>
-      <mat-form-field hideRequiredMarker="true" floatLabel="never">
-        <input cdkFocusInitial autocomplete="off" matInput [placeholder]="data.labels.value" [errorStateMatcher]="matcher"
-          #filterValueInput="ngModel" name="filterValue" [(ngModel)]="filterValue" required pattern="^[0-9]+(\.?[0-9]+)?$">
-        <mat-error *ngIf="filterValueInput && filterValueInput.invalid">{{getErrorMessage(filterValueInput)}}</mat-error>
+      <mat-form-field floatLabel="never" hideRequiredMarker="true">
+        <input #filterValueInput="ngModel" [(ngModel)]="filterValue" [errorStateMatcher]="matcher" [placeholder]="data.labels.value"
+               autocomplete="off"
+               cdkFocusInitial matInput name="filterValue" pattern="^[0-9]+(\.?[0-9]+)?$"
+               required>
+        <mat-error
+          *ngIf="filterValueInput && filterValueInput.invalid">{{getErrorMessage(filterValueInput)}}</mat-error>
       </mat-form-field>
     </ng-template>
 
-    <ng-template #valuesListField let-options="options" let-operator="operator" let-f="form">
+    <ng-template #valuesListField let-f="form" let-operator="operator" let-options="options">
       <div class="py-3">
-        <mat-checkbox class="d-block" *ngFor="let option of options" [checked]="isValueChecked(option)" (change)="valueCheckChange(option, $event.checked)">{{getPossibleOptionDisplayText(option)}}</mat-checkbox>
+        <mat-checkbox (change)="valueCheckChange(option, $event.checked)" *ngFor="let option of options" [checked]="isValueChecked(option)"
+                      class="d-block">{{getPossibleOptionDisplayText(option)}}</mat-checkbox>
         <mat-error *ngIf="f.submitted && !isAtleastOneValueSelected">{{MUST_SELECT_VALUE_VALIDATION}}</mat-error>
       </div>
     </ng-template>
@@ -69,19 +77,27 @@
     <ng-template #booleanField>
       <div class="py-3">
         <!-- Workaround to focus radio buttons -->
-        <input style="width: 0px; height: 0px;" cdkFocusInitial (focus)="filterValue == false ? radioButtonFalse.focus() : radioButtonTrue.focus()" autocomplete="off" matInput>
+        <input (focus)="filterValue == false ? radioButtonFalse.focus() : radioButtonTrue.focus()" autocomplete="off"
+               cdkFocusInitial matInput
+               style="width: 0px; height: 0px;">
         <mat-radio-group [(ngModel)]="filterValue" name="filterValue">
-          <mat-radio-button #radioButtonTrue class="mr-3" [value]="true"><mat-icon class="mt-1">check</mat-icon></mat-radio-button>
-          <mat-radio-button #radioButtonFalse [value]="false"><mat-icon class="mt-1">close</mat-icon></mat-radio-button>
+          <mat-radio-button #radioButtonTrue [value]="true" class="mr-3">
+            <mat-icon class="mt-1">check</mat-icon>
+          </mat-radio-button>
+          <mat-radio-button #radioButtonFalse [value]="false">
+            <mat-icon class="mt-1">close</mat-icon>
+          </mat-radio-button>
         </mat-radio-group>
       </div>
     </ng-template>
 
     <ng-template #textField>
-      <mat-form-field hideRequiredMarker="true" floatLabel="never">
-        <input cdkFocusInitial autocomplete="off" matInput [placeholder]="data.labels.value" [errorStateMatcher]="matcher"
-          #filterValueInput="ngModel" name="filterValue" [(ngModel)]="filterValue" required>
-        <mat-error *ngIf="filterValueInput && filterValueInput.invalid">{{getErrorMessage(filterValueInput)}}</mat-error>
+      <mat-form-field floatLabel="never" hideRequiredMarker="true">
+        <input #filterValueInput="ngModel" [(ngModel)]="filterValue" [errorStateMatcher]="matcher" [placeholder]="data.labels.value"
+               autocomplete="off"
+               cdkFocusInitial matInput name="filterValue" required>
+        <mat-error
+          *ngIf="filterValueInput && filterValueInput.invalid">{{getErrorMessage(filterValueInput)}}</mat-error>
       </mat-form-field>
     </ng-template>
 

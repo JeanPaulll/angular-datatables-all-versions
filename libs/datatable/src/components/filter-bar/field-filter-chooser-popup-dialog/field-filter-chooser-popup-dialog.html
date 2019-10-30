@@ -1,14 +1,16 @@
 <div class="dialog-container">
   <form class="search-field">
     <mat-form-field>
-      <input autocomplete="off" matInput [placeholder]="data.labels.searchField" name="fieldSearchQuery" [ngModel]="fieldSearchQuery"
-        (ngModelChange)="onFieldSearch($event)" (keydown)="handleKeyDown($event)">
+      <input (keydown)="handleKeyDown($event)" (ngModelChange)="onFieldSearch($event)" [ngModel]="fieldSearchQuery" [placeholder]="data.labels.searchField"
+             autocomplete="off"
+             matInput name="fieldSearchQuery">
     </mat-form-field>
   </form>
   <div class="fields-list">
     <mat-nav-list>
-      <a tabindex="0" mat-list-item [class.active]="activeItem == listItem" #listItem *ngFor="let field of filteredFields"
-        (click)="fieldSelected(field)">{{field.header}}
+      <a #listItem (click)="fieldSelected(field)" *ngFor="let field of filteredFields" [class.active]="activeItem == listItem"
+         mat-list-item
+         tabindex="0">{{field.header}}
       </a>
     </mat-nav-list>
   </div>

@@ -1,12 +1,12 @@
-import { Component, Inject, OnInit, ViewChildren, QueryList, ViewChild } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { POPUP_DIALOG_CLOSE } from 'ngx-popup-dialog';
+import {Component, Inject, OnInit, QueryList, ViewChildren} from '@angular/core';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {POPUP_DIALOG_CLOSE} from 'ngx-popup-dialog';
 
-import { DataTableTranslations } from '../../../types/data-table-translations.type';
-import { FilterableField } from '../../../types/filterable-field.type';
-import { ListKeyManager } from '@angular/cdk/a11y';
-import { UP_ARROW, DOWN_ARROW, ENTER } from '@angular/cdk/keycodes';
-import { MatListItem } from '@angular/material/list';
+import {DataTableTranslations} from '../../../types/data-table-translations.type';
+import {FilterableField} from '../../../types/filterable-field.type';
+import {ListKeyManager} from '@angular/cdk/a11y';
+import {DOWN_ARROW, ENTER, UP_ARROW} from '@angular/cdk/keycodes';
+import {MatListItem} from '@angular/material/list';
 
 
 interface DialogData {
@@ -27,6 +27,7 @@ export class FieldFilterChooserPopupDialog implements OnInit {
 
   fieldSearchQuery = '';
   filteredFields: FilterableField[];
+
   constructor(
     @Inject(POPUP_DIALOG_CLOSE) private _dialogCloser: (dialogResult?: any) => void,
     @Inject(MAT_DIALOG_DATA) public data: DialogData

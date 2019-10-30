@@ -1,12 +1,14 @@
 <div class="filter-bar">
-    <div class="px-2 pb-2">
-      <mat-chip-list #chipList>
-        <i class="fa fa-filter fa-2x filter-icon mr-1" (click)="filterInput.click()"></i>
-        <mat-chip *ngFor="let filter of filters" (click)="chipClicked($event, filter)" [removable]="true" (removed)="removeFilter(filter)">
-          {{formatChipDisplayText(filter)}}
-          <mat-icon matChipRemove>cancel</mat-icon>
-        </mat-chip>
-        <input #filterInput autocomplete="off" class="filter-input" [placeholder]="dataTable.labels.addFilter" [matChipInputFor]="chipList" (focus)="inputFocused($event)">
-      </mat-chip-list>
-    </div>
+  <div class="px-2 pb-2">
+    <mat-chip-list #chipList>
+      <i (click)="filterInput.click()" class="fa fa-filter fa-2x filter-icon mr-1"></i>
+      <mat-chip (click)="chipClicked($event, filter)" (removed)="removeFilter(filter)" *ngFor="let filter of filters"
+                [removable]="true">
+        {{formatChipDisplayText(filter)}}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+      <input #filterInput (focus)="inputFocused($event)" [matChipInputFor]="chipList" [placeholder]="dataTable.labels.addFilter"
+             autocomplete="off" class="filter-input">
+    </mat-chip-list>
+  </div>
 </div>

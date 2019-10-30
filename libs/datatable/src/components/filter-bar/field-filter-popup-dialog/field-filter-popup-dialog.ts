@@ -1,11 +1,11 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { POPUP_DIALOG_CLOSE } from 'ngx-popup-dialog';
+import {Component, Inject, OnInit} from '@angular/core';
+import {FormControl, FormGroupDirective, NgForm} from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {POPUP_DIALOG_CLOSE} from 'ngx-popup-dialog';
 
-import { DataTableTranslations } from '../../../types/data-table-translations.type';
-import { Filter } from '../../../types/filter.type';
+import {DataTableTranslations} from '../../../types/data-table-translations.type';
+import {Filter} from '../../../types/filter.type';
 
 interface DialogData {
   fieldFilter: Filter;
@@ -27,18 +27,18 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./field-filter-popup-dialog.css']
 })
 export class FieldFilterPopupDialog implements OnInit {
-  MUST_SELECT_VALUE_VALIDATION = this.data.labels.selectedValueRequired;
   private static numericOperators = ['lt', 'gt', 'lte', 'gte', 'eq', 'ne', 'empty']
   private static textualOperators = ['contains', 'not_contains', 'starts', 'ends', 'eq', 'ne', 'empty']
-  private static  enumOperators = ['eq', 'ne', 'empty']
-  private static  boolOperators = ['eq']
+  private static enumOperators = ['eq', 'ne', 'empty']
+  private static boolOperators = ['eq']
   private static ALL_FILTER_OPERATORS = {
-    "number" : FieldFilterPopupDialog.numericOperators,
+    "number": FieldFilterPopupDialog.numericOperators,
     "date": FieldFilterPopupDialog.numericOperators,
     "text": FieldFilterPopupDialog.textualOperators,
     "enum": FieldFilterPopupDialog.enumOperators,
     "bool": FieldFilterPopupDialog.boolOperators
   }
+  MUST_SELECT_VALUE_VALIDATION = this.data.labels.selectedValueRequired;
   dataType;
   filterOperators;
   filterValue;
@@ -77,7 +77,7 @@ export class FieldFilterPopupDialog implements OnInit {
       if (this.dataType == 'date') value = this.formatDate(value)
       if (this.dataType == 'enum') value = this.valuesList;
     }
-    this._dialogCloser({ field: this.data.fieldFilter.field, operator: this.selectedOperator, value: value });
+    this._dialogCloser({field: this.data.fieldFilter.field, operator: this.selectedOperator, value: value});
   }
 
   valueCheckChange(value, checked: boolean) {

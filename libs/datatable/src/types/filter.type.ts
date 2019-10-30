@@ -1,4 +1,4 @@
-import { FilterableField } from "./filterable-field.type";
+import {FilterableField} from "./filterable-field.type";
 
 export interface Filter {
   field: FilterableField;

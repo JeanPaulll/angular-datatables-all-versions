@@ -1,13 +1,13 @@
-import { Component, forwardRef, Inject, OnInit } from '@angular/core';
-import { PopupDialogService } from 'ngx-popup-dialog';
+import {Component, forwardRef, Inject, OnInit} from '@angular/core';
+import {PopupDialogService} from 'ngx-popup-dialog';
 
-import { Filter } from '../../types/filter.type';
-import { FilterableField } from '../../types/filterable-field.type';
-import { DataTableComponent } from '../table/table.component';
-import { FieldFilterChooserPopupDialog } from './field-filter-chooser-popup-dialog/field-filter-chooser-popup-dialog';
-import { FieldFilterPopupDialog } from './field-filter-popup-dialog/field-filter-popup-dialog';
-import { MatDialogRef } from '@angular/material/dialog';
-import { PopupDialog } from 'ngx-popup-dialog/lib/popup-dialog/popup-dialog';
+import {Filter} from '../../types/filter.type';
+import {FilterableField} from '../../types/filterable-field.type';
+import {DataTableComponent} from '../table/table.component';
+import {FieldFilterChooserPopupDialog} from './field-filter-chooser-popup-dialog/field-filter-chooser-popup-dialog';
+import {FieldFilterPopupDialog} from './field-filter-popup-dialog/field-filter-popup-dialog';
+import {MatDialogRef} from '@angular/material/dialog';
+import {PopupDialog} from 'ngx-popup-dialog/lib/popup-dialog/popup-dialog';
 
 @Component({
   selector: 'filter-bar',
@@ -40,7 +40,10 @@ export class FilterBarComponent implements OnInit {
     const dialogRef = this.openFieldFilterDialog(event.currentTarget, filter);
     dialogRef.afterClosed().subscribe((result: Filter) => {
       if (!result) return;
-      this.dataTable.filterUpdated.emit({ old: this.convertFilterToEmittedFilter(filter), new: this.convertFilterToEmittedFilter(result) });
+      this.dataTable.filterUpdated.emit({
+        old: this.convertFilterToEmittedFilter(filter),
+        new: this.convertFilterToEmittedFilter(result)
+      });
       let index = this.filters.indexOf(filter)
       this.filters[index] = result;
       this.dataTable.filterChanged.emit(this.filters.map(c => this.convertFilterToEmittedFilter(c)));
@@ -64,7 +67,7 @@ export class FilterBarComponent implements OnInit {
     this.fieldChooserDialogRef.afterClosed().subscribe(result => {
       this.fieldChooserDialogRef = null;
       if (!result) return;
-      const dialogRef = this.openFieldFilterDialog(triggeredElement, { field: result });
+      const dialogRef = this.openFieldFilterDialog(triggeredElement, {field: result});
       dialogRef.afterClosed().subscribe((result: Filter) => {
         if (!result) return;
         this.filters.push(result);
