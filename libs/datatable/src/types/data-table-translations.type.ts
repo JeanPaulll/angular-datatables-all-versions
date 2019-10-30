@@ -1,4 +1,17 @@
-export declare type FilterOperator = 'lt' | 'gt' | 'lte' | 'gte' | 'eq' | 'ne' | 'contains' | 'not_contains' | 'starts' | 'ends' | 'empty' | 'true' | 'false';
+export declare type FilterOperator =
+  'lt'
+  | 'gt'
+  | 'lte'
+  | 'gte'
+  | 'eq'
+  | 'ne'
+  | 'contains'
+  | 'not_contains'
+  | 'starts'
+  | 'ends'
+  | 'empty'
+  | 'true'
+  | 'false';
 
 export interface DataTableTranslations {
   headerReload?: string;

@@ -1,4 +1,4 @@
-import { DataTableResource, DataTableParams } from 'angular-datatables-all-versions';
+import {DataTableParams, DataTableResource} from 'angular-datatables-all-versions';
 
 export class DataTableResourceCustom<T> extends DataTableResource<T> {
 
