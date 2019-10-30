@@ -9,7 +9,9 @@
       "node"
     ],
     "paths": {
-      "angular-datatables-all-versions": [ "../dist/angular-datatables-all-versions" ]
+      "angular-datatables-all-versions": [
+        "../dist/angular-datatables-all-versions"
+      ]
     }
   },
   "files": [

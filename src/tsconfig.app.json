@@ -2,7 +2,9 @@
   "extends": "../tsconfig.json",
   "angularCompilerOptions": {
     "paths": {
-      "angular-datatables-all-versions": [ "../libs/datatable/src/public_api.ts" ]
+      "angular-datatables-all-versions": [
+        "../libs/datatable/src/public_api.ts"
+      ]
     }
   },
   "compilerOptions": {
@@ -11,7 +13,9 @@
     "module": "es2015",
     "types": [],
     "paths": {
-      "angular-datatables-all-versions": [ "../libs/datatable/src/public_api.ts" ]
+      "angular-datatables-all-versions": [
+        "../libs/datatable/src/public_api.ts"
+      ]
     }
   },
   "exclude": [

@@ -1,7 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { CodeViewerComponent } from './components/code-viewer/code-viewer.component';
-import { map, mergeMap, filter } from 'rxjs/operators';
+import {Component, ViewChild} from '@angular/core';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import {CodeViewerComponent} from './components/code-viewer/code-viewer.component';
+import {filter, map, mergeMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -24,8 +24,8 @@ export class AppComponent {
       }),
       mergeMap(route => route.data))
       .subscribe(data => {
-          this.viewer.setPath(data.src ? data.src : '');
-          this.viewer.hideCodeBlock();
+        this.viewer.setPath(data.src ? data.src : '');
+        this.viewer.hideCodeBlock();
       });
   }
 }

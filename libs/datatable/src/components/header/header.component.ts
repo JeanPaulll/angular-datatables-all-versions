@@ -1,11 +1,5 @@
-import {
-  Component,
-  ElementRef,
-  forwardRef,
-  HostListener,
-  Inject
-} from '@angular/core';
-import { DataTableComponent } from '../table/table.component';
+import {Component, ElementRef, forwardRef, HostListener, Inject} from '@angular/core';
+import {DataTableComponent} from '../table/table.component';
 
 @Component({
   selector: 'data-table-header',
@@ -33,8 +27,8 @@ export class DataTableHeaderComponent {
   }
 
   onChange(event: Event) {
-    const isChecked = (<HTMLInputElement> event.target).checked;
-    const columnName = (<HTMLInputElement> event.target).parentElement.textContent.trim();
+    const isChecked = (<HTMLInputElement>event.target).checked;
+    const columnName = (<HTMLInputElement>event.target).parentElement.textContent.trim();
     const interpolateParams = {
       'column_name': columnName,
       'title': this.dataTable.title

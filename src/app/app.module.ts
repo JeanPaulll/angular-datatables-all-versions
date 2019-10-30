@@ -10,21 +10,21 @@ import {DocsViewerComponent} from './components/docs-viewer/docs-viewer.componen
 import {HomeComponent} from './components/home/home.component';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HomeComponent,
-        CodeViewerComponent,
-        DocsViewerComponent
-    ],
-    imports: [
-        CommonModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        NgxMdModule.forRoot()
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    CodeViewerComponent,
+    DocsViewerComponent
+  ],
+  imports: [
+    CommonModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    NgxMdModule.forRoot()
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

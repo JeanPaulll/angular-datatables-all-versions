@@ -8,8 +8,6 @@ import {CellCallback} from '../../types/cell-callback.type';
 })
 export class DataTableColumnDirective implements OnInit {
 
-  private styleClassObject = {}; // for [ngClass]
-
   // init:
   @Input() header: string;
   @Input() sortable = false;
@@ -17,13 +15,12 @@ export class DataTableColumnDirective implements OnInit {
   @Input() property: string;
   @Input() styleClass: string;
   @Input() cellColors: CellCallback;
-
   // init and state:
   @Input() width: number | string;
   @Input() visible = true;
-
   @ContentChild('dataTableCell') cellTemplate: ElementRef;
   @ContentChild('dataTableHeader') headerTemplate: ElementRef;
+  private styleClassObject = {}; // for [ngClass]
 
   getCellColor(row: DataTableRowComponent, index: number) {
     if (this.cellColors !== undefined) {

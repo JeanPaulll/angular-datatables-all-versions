@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component, DebugElement } from '@angular/core';
-import { HideDirective } from './hide';
-import { By } from '@angular/platform-browser';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {Component, DebugElement} from '@angular/core';
+import {HideDirective} from './hide';
+import {By} from '@angular/platform-browser';
 
 @Component({
   template: `
@@ -19,7 +19,7 @@ describe('(datatable): Hide', () => {
     fixture = TestBed.configureTestingModule({
       declarations: [HideDirective, TestComponent]
     })
-    .createComponent(TestComponent);
+      .createComponent(TestComponent);
     fixture.detectChanges();
     debugElements = fixture.debugElement.queryAll(By.directive(HideDirective));
   });

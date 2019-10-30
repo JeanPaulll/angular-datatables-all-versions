@@ -1,11 +1,10 @@
-
-import {of as observableOf,  Observable ,  forkJoin } from 'rxjs';
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {forkJoin, of as observableOf} from 'rxjs';
+import {Component, ElementRef, ViewChild} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 
 import * as Highlight from 'highlight.js';
-import { catchError } from 'rxjs/operators';
+import {catchError} from 'rxjs/operators';
 
 @Component({
   selector: 'code-viewer',
@@ -31,7 +30,7 @@ export class CodeViewerComponent {
   path = '';
 
   constructor(private http: HttpClient) {
-    Highlight.configure({ useBR: false, languages: ['css', 'html', 'ts'] });
+    Highlight.configure({useBR: false, languages: ['css', 'html', 'ts']});
     Highlight.initHighlighting();
   }
 
@@ -70,8 +69,14 @@ export class CodeViewerComponent {
   }
 
   highlight() {
-    if (this.showTsNode) { Highlight.highlightBlock(this.tsNode.nativeElement); }
-    if (this.showHtmlNode) { Highlight.highlightBlock(this.htmlNode.nativeElement); }
-    if (this.showCssNode) { Highlight.highlightBlock(this.cssNode.nativeElement); }
+    if (this.showTsNode) {
+      Highlight.highlightBlock(this.tsNode.nativeElement);
+    }
+    if (this.showHtmlNode) {
+      Highlight.highlightBlock(this.htmlNode.nativeElement);
+    }
+    if (this.showCssNode) {
+      Highlight.highlightBlock(this.cssNode.nativeElement);
+    }
   }
 }

@@ -1,12 +1,5 @@
-import {
-  Component,
-  ElementRef,
-  forwardRef,
-  Inject,
-  Input,
-  ViewChild
-} from '@angular/core';
-import { DataTableComponent} from '../table/table.component';
+import {Component, ElementRef, forwardRef, Inject, Input, ViewChild} from '@angular/core';
+import {DataTableComponent} from '../table/table.component';
 
 let nextId = 0;
 
@@ -27,31 +20,6 @@ export class DataTablePaginationComponent {
 
   constructor(@Inject(forwardRef(() => DataTableComponent)) public dataTable: DataTableComponent) {
     this.Math = Math;
-  }
-
-  pageBack() {
-    this.dataTable.offset -= Math.min(this.dataTable.limit, this.dataTable.offset);
-    if (this.dataTable.offset <= 0) {
-      this.pageInput.nativeElement.focus();
-    }
-}
-  pageForward() {
-    this.dataTable.offset += this.dataTable.limit;
-    if ((this.dataTable.offset + this.dataTable.limit) >= this.dataTable.itemCount) {
-      this.pageInput.nativeElement.focus();
-    }
-  }
-
-  pageFirst() {
-    this.dataTable.offset = 0;
-    this.pageInput.nativeElement.focus();
-  }
-
-  pageLast() {
-    this.dataTable.offset = (this.maxPage - 1) * this.dataTable.limit;
-    if ((this.dataTable.offset + this.dataTable.limit) >= this.dataTable.itemCount) {
-      this.pageInput.nativeElement.focus();
-    }
   }
 
   get maxPage() {
@@ -76,10 +44,36 @@ export class DataTablePaginationComponent {
     this.dataTable.page = +value;
   }
 
+  pageBack() {
+    this.dataTable.offset -= Math.min(this.dataTable.limit, this.dataTable.offset);
+    if (this.dataTable.offset <= 0) {
+      this.pageInput.nativeElement.focus();
+    }
+  }
+
+  pageForward() {
+    this.dataTable.offset += this.dataTable.limit;
+    if ((this.dataTable.offset + this.dataTable.limit) >= this.dataTable.itemCount) {
+      this.pageInput.nativeElement.focus();
+    }
+  }
+
+  pageFirst() {
+    this.dataTable.offset = 0;
+    this.pageInput.nativeElement.focus();
+  }
+
+  pageLast() {
+    this.dataTable.offset = (this.maxPage - 1) * this.dataTable.limit;
+    if ((this.dataTable.offset + this.dataTable.limit) >= this.dataTable.itemCount) {
+      this.pageInput.nativeElement.focus();
+    }
+  }
+
   validate(event) {
     const newValue = +event.target.value;
     if (newValue !== this.page) {
-      this.page = (event.target.value > this.maxPage) ? this.maxPage : (newValue < 1 ) ? 1 : newValue;
+      this.page = (event.target.value > this.maxPage) ? this.maxPage : (newValue < 1) ? 1 : newValue;
       event.target.value = this.page;
     }
   }

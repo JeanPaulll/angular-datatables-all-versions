@@ -1,9 +1,4 @@
-import {
-  Directive,
-  ElementRef,
-  Input,
-  Renderer2
-} from '@angular/core';
+import {Directive, ElementRef, Input, Renderer2} from '@angular/core';
 
 function isBlank(obj: any): boolean {
   return obj === undefined || obj === null;

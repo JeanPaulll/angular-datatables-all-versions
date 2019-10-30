@@ -1,10 +1,10 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
   name: 'px'
 })
 export class PixelConverter implements PipeTransform {
-  transform(value: string | number, args: string[]): any {
+  transform(value: string | number, args?: string[]): any {
     if (value === undefined) {
       return;
     }

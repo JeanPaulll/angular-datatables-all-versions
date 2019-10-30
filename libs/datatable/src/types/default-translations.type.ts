@@ -1,4 +1,4 @@
-import { DataTableTranslations } from './data-table-translations.type';
+import {DataTableTranslations} from './data-table-translations.type';
 
 export const defaultTranslations: DataTableTranslations = {
   headerReload: 'reload {title} table',

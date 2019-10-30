@@ -1,4 +1,4 @@
-import { MinPipe } from './min';
+import {MinPipe} from './min';
 
 describe('(datatable): MinPipe', () => {
   let pipe: MinPipe;

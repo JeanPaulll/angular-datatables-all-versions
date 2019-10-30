@@ -1,5 +1,5 @@
 <div class="data-table-wrapper">
-  <span class="sr-only" role="status" aria-live="polite" aria-atomic="false" aria-relevant="text">
+  <span aria-atomic="false" aria-live="polite" aria-relevant="text" class="sr-only" role="status">
     <span [textContent]="reloadNotification"></span>
     <span [textContent]="paginationNotification"></span>
     <span [textContent]="sortNotification"></span>
@@ -10,77 +10,77 @@
   <filter-bar *ngIf="filterableFields && filterableFields.length > 0"></filter-bar>
 
   <div class="data-table-box">
-    <table class="table data-table" [id]="id">
-      <caption class="sr-only" [textContent]="title"></caption>
+    <table [id]="id" class="table data-table">
+      <caption [textContent]="title" class="sr-only"></caption>
       <thead>
       <tr>
         <td [hide]="!expandColumnVisible" class="expand-column-header">
         </td>
-        <th scope="col" [hide]="!indexColumnVisible" class="index-column-header">
+        <th [hide]="!indexColumnVisible" class="index-column-header" scope="col">
           <span [textContent]="indexColumnHeader"></span>
         </th>
         <td [hide]="!selectColumnVisible" class="select-column-header">
-          <input [hide]="!multiSelect"
-                 type="checkbox"
-                 [(ngModel)]="selectAllCheckbox"
+          <input [(ngModel)]="selectAllCheckbox"
+                 [attr.aria-label]="labels.selectAllRows"
                  [disabled]="itemCount === 0"
+                 [hide]="!multiSelect"
                  [title]="labels.selectAllRows"
-                 [attr.aria-label]="labels.selectAllRows"/>
+                 type="checkbox"/>
         </td>
-        <th *ngFor="let column of columns, index as i" #th
-            [hide]="!column.visible"
-            [class.sortable]="column.sortable"
-            [class.resizable]="column.resizable"
-            scope="col"
+        <th #th *ngFor="let column of columns, index as i"
             [attr.aria-sort]="column.sortable ? (column.property === sortBy ? (sortAsc ? 'ascending' : 'descending') : 'none') : null"
-            [ngClass]="column?.styleClassObject" class="column-header" >
-          <button *ngIf="column.sortable" (click)="headerClicked(column, $event)"
+            [class.resizable]="column.resizable"
+            [class.sortable]="column.sortable"
+            [hide]="!column.visible"
+            [ngClass]="column?.styleClassObject"
+            [style.width]="column.width | px" class="column-header" scope="col">
+          <button (click)="headerClicked(column, $event)" *ngIf="column.sortable"
                   [attr.aria-controls]="column.sortable ? id : null"
-                  [disabled]="itemCount === 0"
                   [attr.aria-labelledby]="'col-'+id+'-'+i"
+                  [disabled]="itemCount === 0"
                   [title]="!sortAsc ? labels.sortAscending : labels.sortDescending">
             <span *ngIf="!column.headerTemplate" [id]="'col-'+id+'-'+i"
                   [textContent]="column.header"></span>
-            <span *ngIf="column.headerTemplate" [ngTemplateOutlet]="column.headerTemplate"
-                  [ngTemplateOutletContext]="{column: column}"></span>
-            <span class="column-sort-icon" *ngIf="column.sortable">
-              <i [hide]="column.property === sortBy" class="fa fa-sort column-sortable-icon"
-                aria-hidden="true"></i>
-              <i [hide]="column.property !== sortBy" class="fa"
-                [ngClass]="{'fa-sort-asc': sortAsc, 'fa-sort-desc': !sortAsc}" aria-hidden="true"></i>
+            <span *ngIf="column.headerTemplate" [ngTemplateOutletContext]="{column: column}"
+                  [ngTemplateOutlet]="column.headerTemplate"></span>
+            <span *ngIf="column.sortable" class="column-sort-icon">
+              <i [hide]="column.property === sortBy" aria-hidden="true"
+                 class="fa fa-sort column-sortable-icon"></i>
+              <i [hide]="column.property !== sortBy" [ngClass]="{'fa-sort-asc': sortAsc, 'fa-sort-desc': !sortAsc}"
+                 aria-hidden="true" class="fa"></i>
             </span>
-            <span *ngIf="column.resizable" class="column-resize-handle"
-                  (mousedown)="resizeColumnStart($event, column, th)"></span>
+            <span (mousedown)="resizeColumnStart($event, column, th)" *ngIf="column.resizable"
+                  class="column-resize-handle"></span>
           </button>
           <span *ngIf="!column.sortable">
             <span *ngIf="!column.headerTemplate"
                   [textContent]="column.header"></span>
-            <span *ngIf="column.headerTemplate" [ngTemplateOutlet]="column.headerTemplate"
-                  [ngTemplateOutletContext]="{column: column}"></span>
-            <span class="column-sort-icon" *ngIf="column.sortable">
-               <i [hide]="column.property === sortBy" class="fa fa-sort column-sortable-icon"
-                  aria-hidden="true"></i>
-               <i [hide]="column.property !== sortBy" class="fa"
-                  [ngClass]="{'fa-sort-asc': sortAsc, 'fa-sort-desc': !sortAsc}" aria-hidden="true"></i>
+            <span *ngIf="column.headerTemplate" [ngTemplateOutletContext]="{column: column}"
+                  [ngTemplateOutlet]="column.headerTemplate"></span>
+            <span *ngIf="column.sortable" class="column-sort-icon">
+               <i [hide]="column.property === sortBy" aria-hidden="true"
+                  class="fa fa-sort column-sortable-icon"></i>
+               <i [hide]="column.property !== sortBy" [ngClass]="{'fa-sort-asc': sortAsc, 'fa-sort-desc': !sortAsc}"
+                  aria-hidden="true" class="fa"></i>
             </span>
-            <span *ngIf="column.resizable" class="column-resize-handle"
-                  (mousedown)="resizeColumnStart($event, column, th)"></span>
+            <span (mousedown)="resizeColumnStart($event, column, th)" *ngIf="column.resizable"
+                  class="column-resize-handle"></span>
           </span>
         </th>
       </tr>
       </thead>
-      <tbody *ngFor="let item of items; let index=index" class="data-table-row-wrapper"
-             dataTableRow #row [item]="item" [index]="index" (selectedChange)="onRowSelectChanged(row)">
+      <tbody #row (selectedChange)="onRowSelectChanged(row)"
+             *ngFor="let item of items; let index=index" [index]="index" [item]="item" class="data-table-row-wrapper" dataTableRow>
       </tbody>
       <tbody *ngIf="itemCount === 0 && noDataMessage">
-        <tr>
-          <td [attr.colspan]="columnCount">{{ noDataMessage }}</td>
-        </tr>
+      <tr>
+        <td [attr.colspan]="columnCount">{{ noDataMessage }}</td>
+      </tr>
       </tbody>
-      <tbody class="substitute-rows" *ngIf="pagination && substituteRows">
+      <tbody *ngIf="pagination && substituteRows" class="substitute-rows">
       <tr *ngFor="let item of substituteItems, let index = index"
-          [class.row-odd]="(index + items.length) % 2 === 0"
-          [class.row-even]="(index + items.length) % 2 === 1" role="presentation">
+          [class.row-even]="(index + items.length) % 2 === 1"
+          [class.row-odd]="(index + items.length) % 2 === 0" role="presentation">
         <td [hide]="!expandColumnVisible"></td>
         <td [hide]="!indexColumnVisible">&nbsp;</td>
         <td [hide]="!selectColumnVisible"></td>
@@ -88,7 +88,7 @@
       </tr>
       </tbody>
     </table>
-    <div class="busy" *ngIf="showReloading && reloading">
+    <div *ngIf="showReloading && reloading" class="busy">
       <i><i class="fa fa-spin fa-cog fa-2x"></i></i>
     </div>
   </div>

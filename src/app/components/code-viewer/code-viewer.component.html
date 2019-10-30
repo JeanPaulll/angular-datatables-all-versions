@@ -1,6 +1,6 @@
-<div class="btn-group-toggle float-right" *ngIf="path.length > 0">
-  <label class="btn btn-outline-secondary" [ngClass]="visibility ? 'active' : null">
-    <input type="checkbox" name="visibility" id="visibility" (change)="toggle()" [checked]="visibility" />
+<div *ngIf="path.length > 0" class="btn-group-toggle float-right">
+  <label [ngClass]="visibility ? 'active' : null" class="btn btn-outline-secondary">
+    <input (change)="toggle()" [checked]="visibility" id="visibility" name="visibility" type="checkbox"/>
     View Source
   </label>
 </div>
@@ -8,21 +8,24 @@
 <div *ngIf="visibility">
   <!-- Nav tabs -->
   <nav class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active" id="nav-ts-tab" data-toggle="tab" href="#tsTab" role="tab" aria-controls="nav-ts" aria-expanded="true" *ngIf="tsContent !== ''">TS</a>
-    <a class="nav-item nav-link" id="nav-html-tab" data-toggle="tab" href="#htmlTab"  role="tab" aria-controls="nav-html" aria-expanded="false" *ngIf="htmlContent !== ''">HTML</a>
-    <a class="nav-item nav-link" id="nav-css-tab" data-toggle="tab" href="#cssTab" role="tab" aria-controls="nav-css" aria-expanded="false" *ngIf="cssContent !== ''">CSS</a>
+    <a *ngIf="tsContent !== ''" aria-controls="nav-ts" aria-expanded="true" class="nav-item nav-link active" data-toggle="tab"
+       href="#tsTab" id="nav-ts-tab" role="tab">TS</a>
+    <a *ngIf="htmlContent !== ''" aria-controls="nav-html" aria-expanded="false" class="nav-item nav-link" data-toggle="tab" href="#htmlTab"
+       id="nav-html-tab" role="tab">HTML</a>
+    <a *ngIf="cssContent !== ''" aria-controls="nav-css" aria-expanded="false" class="nav-item nav-link" data-toggle="tab" href="#cssTab"
+       id="nav-css-tab" role="tab">CSS</a>
   </nav>
 
   <!-- Tab panes -->
   <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade active show" id="tsTab" role="tabpanel" aria-labelledby="nav-ts-tab" aria-expanded="true">
-      <pre class="ts" #tsViewerNode>{{ tsContent }}</pre>
+    <div aria-expanded="true" aria-labelledby="nav-ts-tab" class="tab-pane fade active show" id="tsTab" role="tabpanel">
+      <pre #tsViewerNode class="ts">{{ tsContent }}</pre>
     </div>
-    <div class="tab-pane fade" id="htmlTab" role="tabpanel" aria-labelledby="nav-html-tab" aria-expanded="false">
-      <pre class="html" #htmlViewerNode>{{ htmlContent }}</pre>
+    <div aria-expanded="false" aria-labelledby="nav-html-tab" class="tab-pane fade" id="htmlTab" role="tabpanel">
+      <pre #htmlViewerNode class="html">{{ htmlContent }}</pre>
     </div>
-    <div class="tab-pane fade" id="cssTab" role="tabpanel" aria-labelledby="nav-css-tab">
-      <pre class="css" #cssViewerNode>{{ cssContent }}</pre>
+    <div aria-labelledby="nav-css-tab" class="tab-pane fade" id="cssTab" role="tabpanel">
+      <pre #cssViewerNode class="css">{{ cssContent }}</pre>
     </div>
   </div>
 </div>

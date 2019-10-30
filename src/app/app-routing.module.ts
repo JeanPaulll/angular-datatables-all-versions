@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { DocsViewerComponent } from './components/docs-viewer/docs-viewer.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {HomeComponent} from './components/home/home.component';
+import {DocsViewerComponent} from './components/docs-viewer/docs-viewer.component';
 
 const routes: Routes = [
   {
@@ -25,4 +25,5 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

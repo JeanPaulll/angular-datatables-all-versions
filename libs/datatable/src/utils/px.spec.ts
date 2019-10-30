@@ -1,4 +1,4 @@
-import { PixelConverter } from './px';
+import {PixelConverter} from './px';
 
 describe('(datatable): PixelConverter', () => {
   let pipe: PixelConverter;
