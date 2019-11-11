@@ -13,7 +13,6 @@ export class AppComponent {
   @ViewChild(CodeViewerComponent) viewer;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
-
     router.events.pipe(filter(event => event instanceof NavigationEnd),
       map(() => this.activatedRoute),
       map(route => {

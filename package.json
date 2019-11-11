@@ -1,6 +1,6 @@
 {
   "name": "angular-datatables-all-versions",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "license": "MIT",
   "private": false,
   "scripts": {
@@ -64,7 +64,7 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "^2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
-    "ng-packagr": "^5.7.0",
+    "ng-packagr": "^5.7.1",
     "protractor": "^5.4.2",
     "rimraf": "^2.6.1",
     "rxjs-tslint": "^0.1.6",

@@ -43,7 +43,7 @@ export class DataTableComponent implements DataTableParams, OnInit, AfterContent
   @Input() showTitle = true;
   @Input() header = true;
   @Input() pagination = true;
-  @Input() indexColumn = true;
+  @Input() indexColumn = false;
   @Input() indexColumnHeader = '';
   @Input() rowColors: RowCallback;
   @Input() rowTooltip: RowCallback;
@@ -51,7 +51,7 @@ export class DataTableComponent implements DataTableParams, OnInit, AfterContent
   @Input() filters: Filter[];
   @Input() selectColumn = false;
   @Input() multiSelect = true;
-  @Input() substituteRows = true;
+  @Input() substituteRows = false;
   @Input() expandableRows = false;
   @Input() labels: DataTableTranslations;
   @Input() selectOnRowClick = false;
