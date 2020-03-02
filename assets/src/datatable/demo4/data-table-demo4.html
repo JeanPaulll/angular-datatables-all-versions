@@ -1,0 +1,27 @@
+<div>
+  <data-table
+    (reload)="reloadItems($event)"
+    [itemCount]="itemCount"
+    [items]="items"
+    [showReloading]="true"
+    [title]="'Employees'">
+    <data-table-column
+      [header]="'Name'"
+      [property]="'name'"
+      [sortable]="true">
+    </data-table-column>
+    <data-table-column
+      header="Phone number"
+      property="phoneNumber">
+    </data-table-column>
+  </data-table>
+</div>
+<br>
+<br>
+<p class="h6">Notes for testers and developers</p>
+<ul>
+  <li>
+    In this sample, we test the loading spinner when the component is processing data. In order to fake it, we delay the
+    <code>reloadItems()</code> function by a random time (0 to 5000 milliseconds).
+  </li>
+</ul>

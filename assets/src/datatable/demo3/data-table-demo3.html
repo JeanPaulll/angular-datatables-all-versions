@@ -1,0 +1,68 @@
+<div>
+  <data-table
+    (reload)="reloadFilms($event)"
+    [expandableRows]="true"
+    [indexColumnHeader]="'#'"
+    [itemCount]="filmCount"
+    [items]="films"
+    [labels]="labels"
+    [multiSelect]="false"
+    [page]="2"
+    [selectColumn]="true"
+    [selectOnRowClick]="true"
+    [showTitle]="false"
+    [sortAsc]="false"
+    [sortBy]="'rating'"
+    [substituteRows]="true"
+    [title]="'Films'">
+    <ng-template #dataTableExpand let-item="item">
+      <div [textContent]="item.description" style="padding: 5px; color: gray"></div>
+    </ng-template>
+    <data-table-column
+      [header]="'Title'"
+      [property]="'title'"
+      [sortable]="true">
+    </data-table-column>
+    <data-table-column
+      [header]="'Release year'"
+      [property]="'year'"
+      [sortable]="true">
+    </data-table-column>
+    <data-table-column
+      [cellColors]="cellColor"
+      [header]="'Rating'"
+      [property]="'rating'"
+      [sortable]="true">
+    </data-table-column>
+    <data-table-column
+      [header]="'Director'"
+      [property]="'director'">
+    </data-table-column>
+  </data-table>
+  <div style="margin-top: 10px">
+    <b>Selected:</b>
+    <span *ngIf="filmsTable.selectedRow == null"><i>No item selected</i></span>
+    <span [textContent]="filmsTable.selectedRow && filmsTable.selectedRow.item.title"></span>
+  </div>
+</div>
+<br>
+<br>
+<p class="h6">Notes for testers and developers</p>
+<ul>
+  <li>
+    The table demo is initialized with <code>selectOnRowClick=true</code>. This means that a row selection can be
+    triggered clicking on the row. However, this functionality is not accessible, unless the user provides enough
+    information regarding the triggering action consequences and implements an <code>&lt;input&gt;</code> (like a <code>&lt;button&gt;</code>
+    or <code>&lt;a&gt;</code>) as part of the row that will allow the selection via keyboard too.
+  </li>
+  <li>
+    The <em>Rating</em> column defines the column background color based on the rating value, via the
+    <code>cellColors</code> function. The resulting color could be not compliant with high contrast requirements and it
+    must be taken care by the developer for the appropriate fix.
+  </li>
+  <li>
+    <em>Selected</em> region is not part of the datatable component. Any accessibility issue related to it must be fixed
+    by developer.
+  </li>
+</ul>
+
