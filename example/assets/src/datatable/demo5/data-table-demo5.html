@@ -1,0 +1,45 @@
+<div>
+  <data-table
+    (reload)="reloadFilms($event)"
+    [expandableRows]="true"
+    [indexColumnHeader]="'#'"
+    [itemCount]="filmCount"
+    [items]="films"
+    [multiSelect]="true"
+    [noDataMessage]="'Nothing to show.'"
+    [selectColumn]="true"
+    [selectOnRowClick]="true"
+    [sortAsc]="false"
+    [sortBy]="'rating'"
+    [substituteRows]="false"
+    [title]="'Empty table'">
+    <data-table-column
+      [header]="'Title'"
+      [property]="'title'"
+      [sortable]="true">
+    </data-table-column>
+    <data-table-column
+      [header]="'Release year'"
+      [property]="'year'"
+      [sortable]="true">
+    </data-table-column>
+    <data-table-column
+      [header]="'Rating'"
+      [property]="'rating'"
+      [sortable]="true">
+    </data-table-column>
+    <data-table-column
+      [header]="'Director'"
+      [property]="'director'">
+    </data-table-column>
+  </data-table>
+</div>
+<br>
+<br>
+<p class="h6">Notes for testers and developers</p>
+<ul>
+  <li>
+    This demo wants to demonstrate what will be shown when no items are rendered into the table.
+  </li>
+</ul>
+
