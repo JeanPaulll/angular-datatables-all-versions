@@ -9,6 +9,16 @@ A simple Angular All data table, with built-in solutions for features including:
 * selecting visible columns
 * accessibility
 
+Documentation 
+
+![Doc](https://jeanpaulll.github.io/angular-datatables-all-versions/
+)
+
+```bash
+https://jeanpaulll.github.io/angular-datatables-all-versions/
+```
+
+
 The component can be used not just with local data, but remote resources too, ie. when sorting and/or pagination are implemented server side.
 
 The library is packaged with [`ng-packagr`](https://github.com/dherges/ng-packagr).
