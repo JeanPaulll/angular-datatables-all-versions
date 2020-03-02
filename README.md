@@ -11,8 +11,7 @@ A simple Angular All data table, with built-in solutions for features including:
 
 Documentation 
 
-![Doc](https://jeanpaulll.github.io/angular-datatables-all-versions/
-)
+[`DOC`](https://github.com/dherges/ng-packagr)
 
 ```bash
 https://jeanpaulll.github.io/angular-datatables-all-versions/
